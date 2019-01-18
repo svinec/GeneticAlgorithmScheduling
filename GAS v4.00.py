@@ -64,7 +64,7 @@ class GAS():
 	""" This is the main class. It is self-sufficient, meaning that every instance of the class has its own set of parameters, operations, resource, etc.
 	and can function on its own. Each instance of the class can capture only one problem and solve it."""
 
-	def __init__( self, _parameters ): # [!!!] change names to _ for ones that should not be changed
+	def __init__( self, _parameters ):
 		# When an instance is created, we take the input parameters and store them inside the instance. We also do some calculations (further below).
 		self.resourceCount = int( _parameters[ "resourceCount" ] ) # The number of resources [1 <= integer < inf]
 		self.populationSize = int( _parameters[ "populationSize" ] ) # The size of the population [1 <= integer < inf ] (a population is a collection of solutions, the number of solutions is the population size)
@@ -279,7 +279,7 @@ class GAS():
 			p[ "score_resourceSuccession" ] = int( p[ "score" ] )
 			
 			sorted_operations = [] # build a list of all operations and resources which will be sorted, the list is composed of tuples: ( operations id, start time, resource id )
-			for i in range( self.operationCount ): # [!!!] refactor using list comprehensions
+			for i in range( self.operationCount ):
 				sorted_operations.append( ( i, int( p[ "start_times" ][ i ] ), int( p[ "resources" ][ i ] ) ) )
 			sorted_operations.sort( key = lambda x: ( x[ 2 ], x[ 1 ] ) ) # first sort by resource id, then by operation start time
 			
